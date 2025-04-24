@@ -1,64 +1,79 @@
 body {
-    margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #f7f7f7;
-    color: #333;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
 }
 
-/* Container centralizado */
 .todo-container {
-    background-color: #fff;
-    padding: 20px 30px;
-    border-radius: 8px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 400px;
+    width: 300px;
     text-align: center;
 }
 
-/* Título da lista */
-.todo-container h1 {
-    font-size: 24px;
+h1 {
     margin-bottom: 20px;
-    color: #007BFF;
+    color: #333;
 }
 
-/* Lista de tarefas */
-.todo-list {
+.todo-input {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.task-list {
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
-/* Estilo para cada tarefa */
-.todo-item {
+.task-item {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    margin: 10px 0;
     padding: 10px;
-    background-color: #f9f9f9;
     border: 1px solid #ddd;
-    border-radius: 6px;
-    transition: background-color 0.3s;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
 }
 
-/* Checkbox estilizado */
-.todo-item input[type="checkbox"] {
-    margin-right: 10px;
-    transform: scale(1.2);
+.task-item button {
+    background-color: #dc3545;
+    color: white;
 }
 
-/* Alterar cor ao passar o mouse */
-.todo-item:hover {
-    background-color: #f1f1f1;
-}
-
-/* Tarefa concluída */
-.todo-item input[type="checkbox"]:checked + label {
-    text-decoration: line-through;
-    color: #888;
+.task-item button:hover {
+    background-color: #a71d2a;
 }

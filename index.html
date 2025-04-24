@@ -4,29 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Tarefas</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="todo-container">
-        <h1>Minha Lista de Tarefas</h1>
-        <ul class="todo-list">
-            <li class="todo-item">
-                <input type="checkbox" id="task1">
-                <label for="task1">Comprar mantimentos</label>
-            </li>
-            <li class="todo-item">
-                <input type="checkbox" id="task2">
-                <label for="task2">Estudar programação</label>
-            </li>
-            <li class="todo-item">
-                <input type="checkbox" id="task3">
-                <label for="task3">Fazer exercícios</label>
-            </li>
-            <li class="todo-item">
-                <input type="checkbox" id="task4">
-                <label for="task4">Ler um livro</label>
-            </li>
-        </ul>
+        <h1>Lista de Tarefas</h1>
+        <div class="todo-input">
+            <input type="text" id="taskInput" placeholder="Digite uma nova tarefa">
+            <button id="addTaskButton">Adicionar</button>
+        </div>
+        <ul id="taskList" class="task-list"></ul>
     </div>
+
+    <script>
+        // Adicionar tarefa
+        document.getElementById('addTaskButton').addEventListener('click', function() {
+            const taskInput = document.getElementById('taskInput');
+            const taskText = taskInput.value.trim();
+
+            if (taskText !== '') {
+                const taskList = document.getElementById('taskList');
+                const listItem = document.createElement('li');
+                listItem.className = 'task-item';
+
+                listItem.innerHTML = `
+                    <span>${taskText}</span>
+                    <button class="delete-button">Excluir</button>
+                `;
+
+                // Adicionar evento de exclusão
+                listItem.querySelector('.delete-button').addEventListener('click', function() {
+                    taskList.removeChild(listItem);
+                });
+
+                taskList.appendChild(listItem);
+                taskInput.value = '';
+            }
+        });
+    </script>
 </body>
 </html>
