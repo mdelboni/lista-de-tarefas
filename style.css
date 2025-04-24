@@ -1,89 +1,64 @@
-/* Estilo geral */
 body {
-    font-family: Arial, sans-serif;
     margin: 0;
-    padding: 0;
-    background-color: #f4f4f9;
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    color: #333;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
 }
 
-/* Container da lista de tarefas */
+/* Container centralizado */
 .todo-container {
-    background: #fff;
-    padding: 20px;
+    background-color: #fff;
+    padding: 20px 30px;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     width: 100%;
     max-width: 400px;
+    text-align: center;
 }
 
-/* Título */
+/* Título da lista */
 .todo-container h1 {
     font-size: 24px;
-    color: #333;
-    text-align: center;
     margin-bottom: 20px;
-}
-
-/* Campo de entrada e botão */
-.todo-input {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
-}
-
-.todo-input input {
-    flex: 1;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 16px;
-}
-
-.todo-input button {
-    padding: 10px 15px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-.todo-input button:hover {
-    background-color: #0056b3;
+    color: #007BFF;
 }
 
 /* Lista de tarefas */
-.task-list {
-    list-style-type: none;
+.todo-list {
+    list-style: none;
     padding: 0;
     margin: 0;
 }
 
-.task-list li {
+/* Estilo para cada tarefa */
+.todo-item {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    margin: 10px 0;
     padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    margin-bottom: 10px;
     background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    transition: background-color 0.3s;
 }
 
-.task-list li .delete-button {
-    background-color: #ff4d4d;
-    color: #fff;
-    border: none;
-    border-radius: 3px;
-    padding: 5px 10px;
-    cursor: pointer;
+/* Checkbox estilizado */
+.todo-item input[type="checkbox"] {
+    margin-right: 10px;
+    transform: scale(1.2);
 }
 
-.task-list li .delete-button:hover {
-    background-color: #cc0000;
+/* Alterar cor ao passar o mouse */
+.todo-item:hover {
+    background-color: #f1f1f1;
+}
+
+/* Tarefa concluída */
+.todo-item input[type="checkbox"]:checked + label {
+    text-decoration: line-through;
+    color: #888;
 }
