@@ -3,18 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lista de Tarefas</title>
+  <title>To-Do List</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="container">
+  <div class="todo-container">
     <h1>Lista de Tarefas</h1>
-    <div class="task-input">
-      <input type="text" id="taskInput" placeholder="Digite uma tarefa...">
+    <div class="input-container">
+      <input type="text" id="taskInput" placeholder="Adicione uma nova tarefa">
       <button id="addTaskBtn">Adicionar</button>
     </div>
     <ul id="taskList"></ul>
   </div>
-  <script src="script.js"></script>
+
+  <script>
+    // Adicionar tarefa
+    document.getElementById('addTaskBtn').addEventListener('click', function() {
+      const taskInput = document.getElementById('taskInput');
+      const taskList = document.getElementById('taskList');
+      const taskText = taskInput.value.trim();
+
+      if (taskText !== '') {
+        const li = document.createElement('li');
+        li.innerHTML = `${taskText} <button class="delete-btn">Excluir</button>`;
+        taskList.appendChild(li);
+        taskInput.value = '';
+      }
+    });
+
+    // Excluir tarefa
+    document.getElementById('taskList').addEventListener('click', function(event) {
+      if (event.target.classList.contains('delete-btn')) {
+        const li = event.target.parentElement;
+        li.remove();
+      }
+    });
+  </script>
 </body>
 </html>
